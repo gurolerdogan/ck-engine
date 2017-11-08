@@ -6,44 +6,83 @@ import java.util.Date;
  * Created by gurol.erdogan on 7.11.2017.
  */
 public class Order {
-    public String sourceWallet;
-    public String targetWallet;
-    public String sourceAmount;
-    public String targetAmount;
-    public String xrate;
-    public Date time;
+    private long orderId;
+    private String userWallet;
+    private Currency walletCurrency;
+    private Currency orderCurrency;
+    private Double orderPrice;
+    private Double orderAmount;
+    private String orderType;
+    private String xrate;
+    private Date time;
 
-
-    public String getSourceWallet() {
-        return sourceWallet;
+    public Order(long orderId, String userWallet, Currency walletCurrency, Currency orderCurrency, Double orderPrice, Double orderAmount, String orderType, String xrate, Date time) {
+        this.orderId = orderId;
+        this.userWallet = userWallet;
+        this.walletCurrency = walletCurrency;
+        this.orderCurrency = orderCurrency;
+        this.orderPrice = orderPrice;
+        this.orderAmount = orderAmount;
+        this.orderType = orderType;
+        this.xrate = xrate;
+        this.time = time;
     }
 
-    public void setSourceWallet(String sourceWallet) {
-        this.sourceWallet = sourceWallet;
+
+    public long getOrderId() {
+        return orderId;
     }
 
-    public String getTargetWallet() {
-        return targetWallet;
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
     }
 
-    public void setTargetWallet(String targetWallet) {
-        this.targetWallet = targetWallet;
+    public String getUserWallet() {
+        return userWallet;
     }
 
-    public String getSourceAmount() {
-        return sourceAmount;
+    public void setUserWallet(String userWallet) {
+        this.userWallet = userWallet;
     }
 
-    public void setSourceAmount(String sourceAmount) {
-        this.sourceAmount = sourceAmount;
+    public Currency getWalletCurrency() {
+        return walletCurrency;
     }
 
-    public String getTargetAmount() {
-        return targetAmount;
+    public void setWalletCurrency(Currency walletCurrency) {
+        this.walletCurrency = walletCurrency;
     }
 
-    public void setTargetAmount(String targetAmount) {
-        this.targetAmount = targetAmount;
+    public Currency getOrderCurrency() {
+        return orderCurrency;
+    }
+
+    public void setOrderCurrency(Currency orderCurrency) {
+        this.orderCurrency = orderCurrency;
+    }
+
+    public Double getOrderPrice() {
+        return orderPrice;
+    }
+
+    public void setOrderPrice(Double orderPrice) {
+        this.orderPrice = orderPrice;
+    }
+
+    public Double getOrderAmount() {
+        return orderAmount;
+    }
+
+    public void setOrderAmount(Double orderAmount) {
+        this.orderAmount = orderAmount;
+    }
+
+    public String getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
     }
 
     public String getXrate() {
@@ -60,43 +99,5 @@ public class Order {
 
     public void setTime(Date time) {
         this.time = time;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "sourceWallet='" + sourceWallet + '\'' +
-                ", targetWallet='" + targetWallet + '\'' +
-                ", sourceAmount='" + sourceAmount + '\'' +
-                ", targetAmount='" + targetAmount + '\'' +
-                ", xrate='" + xrate + '\'' +
-                ", time=" + time +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Order order = (Order) o;
-
-        if (sourceWallet != null ? !sourceWallet.equals(order.sourceWallet) : order.sourceWallet != null) return false;
-        if (targetWallet != null ? !targetWallet.equals(order.targetWallet) : order.targetWallet != null) return false;
-        if (sourceAmount != null ? !sourceAmount.equals(order.sourceAmount) : order.sourceAmount != null) return false;
-        if (targetAmount != null ? !targetAmount.equals(order.targetAmount) : order.targetAmount != null) return false;
-        if (xrate != null ? !xrate.equals(order.xrate) : order.xrate != null) return false;
-        return time != null ? time.equals(order.time) : order.time == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = sourceWallet != null ? sourceWallet.hashCode() : 0;
-        result = 31 * result + (targetWallet != null ? targetWallet.hashCode() : 0);
-        result = 31 * result + (sourceAmount != null ? sourceAmount.hashCode() : 0);
-        result = 31 * result + (targetAmount != null ? targetAmount.hashCode() : 0);
-        result = 31 * result + (xrate != null ? xrate.hashCode() : 0);
-        result = 31 * result + (time != null ? time.hashCode() : 0);
-        return result;
     }
 }
